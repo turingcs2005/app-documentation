@@ -5,7 +5,7 @@ const AppDocument = require('../models/app-document');
 // MongoDB queries are so simple that we do not need to house queries in separate controller files 
 
 // return all app documents
-router.get('/', (req, res) => {
+router.get('/allDocuments', (req, res) => {
     AppDocument.find( (err, data) => {
         if (err) {
             console.log(err);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { sharedTools } from 'src/app/app-data/shared-tools';
+import { AppDocument } from 'src/app/app-data/app-models';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,20 @@ import { sharedTools } from 'src/app/app-data/shared-tools';
 })
 export class HomeComponent implements OnInit {
 
-  sharedTools = sharedTools;
+  appDocuments: AppDocument[] = [new AppDocument()];
   
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit(): void {
+    this.api.getAppDocuments().subscribe(
+      data => {
+        this.appDocuments = data;
+      }, err => {
+        console.log(err);
+      }
+    );
   }
 
 }

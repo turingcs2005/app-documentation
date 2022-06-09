@@ -26,7 +26,7 @@ async function createAppDocument() {
     }
 }
 
-createAppDocument();
+// createAppDocument();
 
 const db = mongoose.connection;
 module.exports = db;

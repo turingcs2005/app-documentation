@@ -1,1 +1,5 @@
 <div class="mat-h3">Apps</div>
+
+<div *ngIf="appDocuments">
+    <div class="link" *ngFor="let x of appDocuments" [routerLink]="['/app-document-details/', x._id]">{{ x.projectName }}</div>
+</div>
